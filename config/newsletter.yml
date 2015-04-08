@@ -1,0 +1,18 @@
+---
+common:
+  site_url: http://ireach.dev
+  layout: newsletter/application
+  archive_layout: layout
+  use_show_for_resources: false
+  designs_require_authentication: true
+  design_authorized_roles: ['designer','admin']
+  newsletters_require_authentication: true
+  newsletter_authorized_roles: []
+  designs_path: <%= File.join(Rails.root,'designs') %>
+  asset_path: newsletter_assets
+  path_prefix: /admin
+  table_prefix: newsletter_
+development:
+  site_url: http://ireach.dev
+test:
+  site_url: http://ireach.lvh.me
