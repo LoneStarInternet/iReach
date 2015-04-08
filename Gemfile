@@ -11,6 +11,7 @@ gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter', branch:
 gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach', branch: 'rails3.2.x'
 gem 'devise'
 gem "delayed_job_web"
+gem 'quiet_assets'
 gem 'spring'
 
 

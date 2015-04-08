@@ -152,6 +152,8 @@ GEM
     net-ssh (2.9.2)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -239,6 +241,7 @@ DEPENDENCIES
   mail_manager!
   mysql2
   newsletter!
+  quiet_assets
   rails (= 3.2.21)
   sass-rails (~> 3.2.3)
   spring

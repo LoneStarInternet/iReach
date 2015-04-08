@@ -1,6 +1,7 @@
 ---
 common:
   site_url: http://example.com
+  layout: 'i_reach/application'
   public_layout: layout
   site_path: /
   use_show_for_resources: false
@@ -8,7 +9,7 @@ common:
     to_addresses:
     - bobo@example.com
     from_addresss: admin@example.com
-  requires_authentication: false
+  requires_authentication: true
   roles_method: 
   authorized_roles: []
   unsubscribe_path: /listmgr
@@ -29,7 +30,8 @@ common:
     email_address: bounces@example.com
     login: test
     password: secret
-    pop_server: pop.example.com
+    pop_server: pop.lvh.me
+    port: 25001
 development:
   site_url: http://example.dev
   secret: !binary |-

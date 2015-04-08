@@ -1,6 +1,14 @@
 IReach::Application.routes.draw do
   devise_for :users
 
+  mount IReach::Engine => "/admin"
+
+  root to: 'i_reach/welcome#index'
+
+  get '/admin', to: 'i_reach/welcome#index'
+
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

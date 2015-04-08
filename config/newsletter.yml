@@ -1,7 +1,7 @@
 ---
 common:
   site_url: http://ireach.dev
-  layout: newsletter/application
+  layout: i_reach/application
   archive_layout: layout
   use_show_for_resources: false
   designs_require_authentication: true
