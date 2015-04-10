@@ -1,7 +1,7 @@
 IReach::Application.routes.draw do
   devise_for :users
 
-  mount IReach::Engine => "/admin"
+  mount IReach::Engine => "/admin", layout: 'application'
 
   root to: 'i_reach/welcome#index'
 

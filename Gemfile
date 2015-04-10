@@ -6,13 +6,19 @@ gem 'rails', '3.2.21'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'mail_manager', git: 'ssh://git@bender.lnstar.com/var/git/mail_manager', branch: 'rails3.2.x'
-gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter', branch: 'rails3.2.x'
-gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach', branch: 'rails3.2.x'
+#gem 'mail_manager', git: 'ssh://git@bender.lnstar.com/var/git/mail_manager', branch: 'rails3.2.x'
+#gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter', branch: 'rails3.2.x'
+#gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach', branch: 'rails3.2.x'
+gem 'mail_manager', path: '/home/chrisboy/Projects/LSI/mail_manager'
+gem 'newsletter', path: '/home/chrisboy/Projects/LSI/newsletter'
+gem 'i_reach', path: '/home/chrisboy/Projects/LSI/i_reach'
 gem 'devise'
+gem 'role_model'
 gem "delayed_job_web"
 gem 'quiet_assets'
 gem 'spring'
+gem 'dotenv-rails'
+gem 'pry-rails'
 
 
 # Gems used only for assets and not required

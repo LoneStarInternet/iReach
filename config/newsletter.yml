@@ -5,9 +5,14 @@ common:
   archive_layout: layout
   use_show_for_resources: false
   designs_require_authentication: true
-  design_authorized_roles: ['designer','admin']
+  design_authorized_roles: 
+  - designer
+  - admin
   newsletters_require_authentication: true
-  newsletter_authorized_roles: []
+  newsletter_authorized_roles: 
+  - newsletter
+  - admin
+  roles_method: role_symbols
   designs_path: <%= File.join(Rails.root,'designs') %>
   asset_path: newsletter_assets
   path_prefix: /admin

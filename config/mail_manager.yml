@@ -10,8 +10,10 @@ common:
     - bobo@example.com
     from_addresss: admin@example.com
   requires_authentication: true
-  roles_method: 
-  authorized_roles: []
+  roles_method: role_symbols
+  authorized_roles: 
+  - admin
+  - mail_manager
   unsubscribe_path: /listmgr
   dont_include_images_domains:
   - yahoo.com
@@ -24,19 +26,14 @@ common:
   path_prefix: /admin
   table_prefix: mail_manager_
   default_from_email_address: Contact <contact@example.com>
-  secret: !binary |-
-    NjVkZGRlZWFhNGNhZjA0OGI5NjJmM2Q0M2Y0YzU3
+  secret: <%= ENV['MAIL_MANAGER_SECRET'] %>
   bounce:
-    email_address: bounces@example.com
+    email_address: bounces@lvh.me
     login: test
     password: secret
     pop_server: pop.lvh.me
-    port: 25001
+    port: <%= 
 development:
   site_url: http://example.dev
-  secret: !binary |-
-    MjI3NzkyMTdjNzk5ZjgzNWU3NThmNTBjYTE1ZWEx
 test:
   site_url: http://example.lvh.me:4000
-  secret: !binary |-
-    ZWIyZTliMGVmOGU1MDlhZTk3NzdmYzNlYmIzNWM4
