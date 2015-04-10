@@ -1,0 +1,35 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br />
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br />
+  <%= f.label :email %>
+  <%= f.text_field :email %><br />
+  <% if @user.new_record? %>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br />
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br />
+  <% end %>
+  <fieldset>
+    <legend>Roles</legend>
+    <% User.valid_roles.map(&:to_s).each do |role| %>
+      <%= label_tag "user_roles_#{role}", role.humanize %>
+      <%= check_box_tag "user[roles][]", role, @user.send("#{role}?"), {id: "user_roles#{role}"} %><br />
+    <% end %>
+  </fieldset>
+  <%= contactable_subscriptions_selector(f) %>
+  <div class="submit_button"><%= f.submit "Submit", :class => 'button' %></div>
+<% end %>

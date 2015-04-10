@@ -1,5 +1,9 @@
 IReach::Application.routes.draw do
   devise_for :users
+  
+  scope path: :admin do
+    resources :users
+  end
 
   mount IReach::Engine => "/admin", layout: 'application'
 

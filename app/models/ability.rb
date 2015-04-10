@@ -4,6 +4,9 @@ class Ability
   def initialize(user)
     eval Newsletter::abilities
     eval MailManager::abilities
+    if user.present? && user.admin?
+      can :manage, User
+    end
 
     # Define abilities for the passed in user here. For example:
     #
