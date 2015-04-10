@@ -1,0 +1,24 @@
+=IReach Application=
+This is a cloneable app that will get you up and running quickly if all you want to do is have the newsletter and mail manager functionality up and running without direct app integration.
+
+==Requirements==
+* ruby 1.9.3+
+* an activerecord compatible db
+** tested with: mysql, postgresql, sqlite
+
+==Installation==
+* clone the source
+ git clone https://github.com/LoneStarInternet/iReach.git
+* go into application dir
+ cd iReach
+ bundle install
+
+==Configuration==
+* set up your database config
+** edit config/database.yml to fit your db
+** NOTE: you can use .env.development and .env.production files to configure ENV variables for use there
+* set up your config/mail_manager.yml to fit your needs
+* set up your config/newsletter.yml to fit your needs
+* migrate your database
+ bundle exec rake db:migrate
+
