@@ -22,3 +22,7 @@ This is a cloneable app that will get you up and running quickly if all you want
 * migrate your database
  bundle exec rake db:migrate
 
+==Data Initialization==
+* Import a 
+  
+
