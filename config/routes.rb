@@ -7,7 +7,7 @@ IReach::Application.routes.draw do
 
   mount IReach::Engine => "/admin", layout: 'application'
 
-  root to: 'i_reach/welcome#index'
+  root to: 'newsletter/newsletters#archive'
 
   get '/admin', to: 'i_reach/welcome#index'
 

@@ -15,7 +15,7 @@
   <div id="menu">
     <ul>
       <li><a href="/admin">Home</a></li>
-      <% if current_user.admin? %>
+      <% if current_user && current_user.admin? %>
         <li><%= link_to "Delayed Job Admin", main_app.delayed_job_path, target: :blank %></li>
       <% end %>
       <% if can?(:manage, User) || can?(:manage, Newsletter::Design) %>

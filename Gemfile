@@ -6,13 +6,23 @@ gem 'rails', '3.2.21'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'mail_manager', git: 'ssh://git@bender.lnstar.com/var/git/mail_manager', branch: 'rails3.2.x'
-gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter', branch: 'rails3.2.x'
-gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach', branch: 'rails3.2.x'
-# examples for local paths
-#gem 'mail_manager', path: '/home/chrisboy/Projects/LSI/mail_manager'
-#gem 'newsletter', path: '/home/chrisboy/Projects/LSI/newsletter'
-#gem 'i_reach', path: '/home/chrisboy/Projects/LSI/i_reach'
+
+# Set gems for local testing
+if ENV['MAIL_MANAGER_GEM_PATH']
+  gem 'mail_manager', path: ENV['MAIL_MANAGER_GEM_PATH']
+else
+  gem 'mail_manager', git: "ssh://git@bender.lnstar.com/var/git/mail_manager.git", branch: "rails3.2.x"
+end
+if ENV['NEWSLETTER_GEM_PATH']
+  gem 'newsletter', path: ENV['NEWSLETTER_GEM_PATH']
+else
+  gem 'newsletter', git: "ssh://git@bender.lnstar.com/var/git/newsletter.git", branch: "rails3.2.x"
+end
+if ENV['IREACH_GEM_PATH']
+  gem 'i_reach', path: ENV['IREACH_GEM_PATH']
+else
+  gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach', branch: 'rails3.2.x'
+end
 gem 'devise'
 gem 'role_model'
 gem "delayed_job_web"
