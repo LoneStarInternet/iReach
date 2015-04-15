@@ -23,6 +23,10 @@ This is a cloneable app that will get you up and running quickly if all you want
  bundle exec rake db:migrate
 
 ==Data Initialization==
-* Import a 
+* Import an example design to start with
+ spring rake newsletter:import_example_design[design_name]
+* log in with the default user:
+** email: admin@example.com
+** password: Secret5!
   
 
