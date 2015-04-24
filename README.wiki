@@ -20,9 +20,9 @@ This is a cloneable app that will get you up and running quickly if all you want
 *** set your SERVER_PORT as appropriate for your installation
 *** configure ENV variables for your database (user, password, and host)
 *** Generate a new MAIL_MANAGER_SECRET: 
-**** export RAILS_ENV=production (if you want production instead of develop)
+**** export RAILS_ENV=production (if you want production instead of development)
 **** bundle exec rails runner "puts SecureRandom.hex(128).to_s"
-**** replace the value in .env.production
+**** replace the value in .env.development or .env.production depending on which you are using
 * set up your config/mail_manager.yml to fit your needs
 * set up your config/newsletter.yml to fit your needs
 * migrate your database
