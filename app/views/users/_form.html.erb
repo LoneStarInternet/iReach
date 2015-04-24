@@ -17,7 +17,7 @@
   <%= f.text_field :last_name %><br />
   <%= f.label :email %>
   <%= f.text_field :email %><br />
-  <% if @user.new_record? %>
+  <% if @user.new_record? || @user == current_user %>
     <%= f.label :password %>
     <%= f.password_field :password %><br />
     <%= f.label :password_confirmation %>
