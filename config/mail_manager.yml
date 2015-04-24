@@ -52,7 +52,6 @@ common:
     to_addresses:
     - bobo@example.com
     from_address: Mail Manager Exception <admin@example.com>
-    from_addresss: admin@example.com
   requires_authentication: true
   roles_method: role_symbols
   authorized_roles:
