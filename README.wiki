@@ -16,7 +16,7 @@ This is a cloneable app that will get you up and running quickly if all you want
 ==Configuration==
 * set up your database config
 ** edit config/database.yml to fit your db
-** NOTE: you can use .env.development and .env.production files to configure ENV variables for use there
+** NOTE: you can use .env.development and .env.production files to configure ENV variables for your database user and password
 * set up your config/mail_manager.yml to fit your needs
 * set up your config/newsletter.yml to fit your needs
 * migrate your database
