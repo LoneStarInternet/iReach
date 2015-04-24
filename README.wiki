@@ -30,7 +30,7 @@ This is a cloneable app that will get you up and running quickly if all you want
 ** More instructions at [https://github.com/LoneStarInternet/newsletter/wiki/config-newsletter.yml]
 * migrate your database
  bundle exec rake db:migrate
-* precompile your assets
+* precompile your assets if you're in production
  bundle exec rake assets:precompile
 
 ==Data Initialization==
