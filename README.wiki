@@ -23,8 +23,10 @@ This is a cloneable app that will get you up and running quickly if all you want
 **** export RAILS_ENV=production (if you want production instead of development)
 **** bundle exec rails runner "puts SecureRandom.hex(128).to_s"
 **** replace the value in .env.development or .env.production depending on which you are using
-* set up your config/mail_manager.yml to fit your needs
-* set up your config/newsletter.yml to fit your needs
+* set up your config/mail_manager.yml to fit your needs - docs are in file
+** More instructions at [https://github.com/LoneStarInternet/mail_manager/wiki/config-mail_manager.yml|Mail Manager wiki]
+* set up your config/newsletter.yml to fit your needs - docs are in file
+** More instructions at [https://github.com/LoneStarInternet/newsletter/wiki/config-newsletter.yml|Newsletter wiki]
 * migrate your database
  bundle exec rake db:migrate
 
