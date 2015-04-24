@@ -23,7 +23,7 @@ gem 'devise'
 gem 'role_model'
 gem "delayed_job_web"
 gem 'quiet_assets'
-gem 'spring'
+# gem 'spring'
 gem 'dotenv-rails'
 gem 'pry-rails'
 
@@ -52,7 +52,7 @@ gem 'jquery-rails'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+# gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
