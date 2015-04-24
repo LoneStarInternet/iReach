@@ -32,7 +32,7 @@ This is a cloneable app that will get you up and running quickly if all you want
 
 ==Data Initialization==
 * Import an example design to start with
- rake newsletter:import_example_design[design_name]
+ rake newsletter:import_example_design
 * log in with the default user:
 ** email: admin@example.com
 ** password: Secret5!
