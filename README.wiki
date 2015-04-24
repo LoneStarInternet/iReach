@@ -39,5 +39,5 @@ This is a cloneable app that will get you up and running quickly if all you want
 * log in with the default user:
 ** email: admin@example.com
 ** password: Secret5!
-  
+* You can then go to Setup -> Users and change the username/password  
 
