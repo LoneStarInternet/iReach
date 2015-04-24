@@ -15,7 +15,13 @@ credentials: &credentials
   pool: 5
   username: <%= ENV['MYSQL_USERNAME'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
-  socket: /var/run/mysqld/mysqld.sock
+<% if ENV['MYSQL_HOST'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
+<% elsif ENV['MYSQL_SOCKET'] %>
+  socket: <%= ENV['MYSQL_SOCKET'] %>
+<% else %>
+  host: localhost
+<% end %>
 
 development:
   <<: *credentials
