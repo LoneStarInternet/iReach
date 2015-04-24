@@ -10,18 +10,14 @@ gem 'mysql2'
 # Set gems for local testing
 if ENV['MAIL_MANAGER_GEM_PATH']
   gem 'mail_manager', path: ENV['MAIL_MANAGER_GEM_PATH']
-else
-  gem 'mail_manager', git: "ssh://git@bender.lnstar.com/var/git/mail_manager.git", branch: "rails3.2.x"
 end
 if ENV['NEWSLETTER_GEM_PATH']
   gem 'newsletter', path: ENV['NEWSLETTER_GEM_PATH']
-else
-  gem 'newsletter', git: "ssh://git@bender.lnstar.com/var/git/newsletter.git", branch: "rails3.2.x"
 end
 if ENV['IREACH_GEM_PATH']
   gem 'i_reach', path: ENV['IREACH_GEM_PATH']
 else
-  gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach', branch: 'rails3.2.x'
+  gem 'i_reach', "~>3.2"
 end
 gem 'devise'
 gem 'role_model'
