@@ -2,7 +2,7 @@
 This is a cloneable app that will get you up and running quickly if all you want to do is have the newsletter and mail manager functionality up and running without direct app integration.
 
 ==Requirements==
-* ruby 1.9.3+
+* ruby 2.1.5+
 * an activerecord compatible db
 ** tested with: mysql, postgresql, sqlite
 
