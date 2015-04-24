@@ -45,7 +45,7 @@
 ---
 common:
   site_url: http://example.com
-  public_layout: layout
+  public_layout: mail_manager/layout
   site_path: "/"
   use_show_for_resources: false
   exception_notification:
