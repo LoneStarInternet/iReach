@@ -28,10 +28,13 @@ class UsersController < ApplicationController
 
   def update
     if params[:user].try(:has_key?,:password)
-      unless params[:user][:password].present? || params[:user][:password_confirmation].present?
+      unless params[:user][:password].present? || params[:user][:password_confirmation].present? || !current_user.is_admin? || !current_user == @user
         params[:user].delete(:password)
         params[:user].delete(:password_confirmation)
       end
+    end
+    if !current_user.is_admin? && params[:user].try(:has_key?,:roles).present?
+      params[:user].delete(:roles)
     end
     if @user.update_attributes(params[:user])
       flash[:notice] = 'User was successfully updated.' 
