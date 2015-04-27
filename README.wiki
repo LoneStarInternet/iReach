@@ -45,7 +45,8 @@ This is a cloneable app that will get you up and running quickly if all you want
 ==Start Services==
 NOTE: remember to prefix with "RAILS_ENV=production" to run in production
 
-* Delayed Job docs: [https://github.com/collectiveidea/delayed_job]
+* Delayed Job  [https://github.com/collectiveidea/delayed_job]
+
   bundle exec script/delayed_job start
   
 * web server (may be different debending on your deployment)
