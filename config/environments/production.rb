@@ -51,7 +51,7 @@ IReach::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :sendmail
-  # jconfig.sendmail_settings = {:location=>"/usr/sbin/sendmail", :arguments=>"-i -t"}
+  # config.sendmail_settings = {:location=>"/usr/sbin/sendmail", :arguments=>"-i -t"}
 
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = { 

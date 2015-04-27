@@ -23,6 +23,7 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %><br />
   <% end %>
+  <% if current_user.is_admin? %>
   <fieldset>
     <legend>Roles</legend>
     <% User.valid_roles.map(&:to_s).each do |role| %>
@@ -30,6 +31,8 @@
       <%= check_box_tag "user[roles][]", role, @user.send("#{role}?"), {id: "user_roles#{role}"} %><br />
     <% end %>
   </fieldset>
-  <%= contactable_subscriptions_selector(f) %>
+  <% end %>
+  <!-- Here is the helper to include subscription management in a form -->
+  <!--%= contactable_subscriptions_selector(f) %-->
   <div class="submit_button"><%= f.submit "Submit", :class => 'button' %></div>
 <% end %>

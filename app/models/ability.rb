@@ -6,6 +6,10 @@ class Ability
     eval MailManager::abilities
     if user.present? && user.admin?
       can :manage, User
+    elsif user.present?
+      can :manage, User do |target|
+        target == user
+      end
     end
 
     # Define abilities for the passed in user here. For example:

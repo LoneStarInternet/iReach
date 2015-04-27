@@ -21,7 +21,7 @@
       <% if can?(:manage, User) || can?(:manage, Newsletter::Design) %>
       <li><span onClick="$('#setup_submenu').toggle();return false" style="cursor: pointer;">Setup</span>
         <ul id='setup_submenu' <%= ' style="display:none"'.html_safe unless request.path =~ %r#/newsletter/designs|setup|users# %>>
-          <%= content_tag(:li, link_to('Users', main_app.users_path)) if can?(:manage, User) %>
+          <%= content_tag(:li, link_to('Users', main_app.users_path)) if current_user.try(:is_admin?) %>
           <%= content_tag(:li, link_to('Newsletter Designs', news.designs_path)) if can?(:manage, Newsletter::Design) %>
         </ul>
       </li>
@@ -38,6 +38,7 @@
       </li>
       <% end %>
       <% if user_signed_in? %> 
+      <li><%= link_to "Edit Profile", main_app.edit_user_path(current_user) %></li>
       <li><%= link_to "Log Out", main_app.destroy_user_session_path, method: :delete %></li>
       <% else %>
       <li><%= link_to "Log In", main_app.new_user_session_path %></li>
