@@ -15,9 +15,6 @@
   <div id="menu">
     <ul>
       <li><a href="/admin">Home</a></li>
-      <% if current_user && current_user.admin? %>
-        <li><%= link_to "Delayed Job Admin", main_app.delayed_job_path, target: :blank %></li>
-      <% end %>
       <% if can?(:manage, User) || can?(:manage, Newsletter::Design) %>
       <li><span onClick="$('#setup_submenu').toggle();return false" style="cursor: pointer;">Setup</span>
         <ul id='setup_submenu' <%= ' style="display:none"'.html_safe unless request.path =~ %r#/newsletter/designs|setup|users# %>>
@@ -31,11 +28,14 @@
       <li><span onClick="$('#mailings_submenu').toggle();return false" style="cursor: pointer;">Mailings</span>
         <ul id='mailings_submenu' <%= ' style="display:none"'.html_safe unless request.path =~ %r|/mail_manager| %>>
           <%= content_tag(:li, link_to('Contacts', mail_manager.contacts_path)) if can?(:manage, MailManager::Contact) %>
-          <%= content_tag(:li, link_to('Mailings', mail_manager.mailings_path)) if can?(:manage, MailManager::Mailing) %>
           <%= content_tag(:li, link_to('Mailing Lists', mail_manager.mailing_lists_path)) if can?(:manage, MailManager::MailingList) %>
+          <%= content_tag(:li, link_to('Mailings', mail_manager.mailings_path)) if can?(:manage, MailManager::Mailing) %>
           <%= content_tag(:li, link_to('Bounces', mail_manager.bounces_path)) if can?(:manage, MailManager::Bounce) %>
         </ul>
       </li>
+      <% end %>
+      <% if current_user && current_user.admin? %>
+        <li><%= link_to "Delayed Job Admin", main_app.delayed_job_path, target: :blank %></li>
       <% end %>
       <% if user_signed_in? %> 
       <li><%= link_to "Edit Profile", main_app.edit_user_path(current_user) %></li>
