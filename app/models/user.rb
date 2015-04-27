@@ -13,9 +13,10 @@ class User < ActiveRecord::Base
     :remember_me, :roles
 end
 
-MailManager::ContactableRegistry.register_contactable("User",{
-  first_name: :first_name,
-  last_name: :last_name,
-  email_address: :email
-})
+# Here is how you might tie a user to a contact
+#MailManager::ContactableRegistry.register_contactable("User",{
+#  first_name: :first_name,
+#  last_name: :last_name,
+#  email_address: :email
+#})
 
