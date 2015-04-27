@@ -32,12 +32,20 @@ This is a cloneable app that will get you up and running quickly if all you want
  bundle exec rake db:migrate
 * precompile your assets if you're in production
  bundle exec rake assets:precompile
-
+* set up your application's outgoing email settings (edit config/environments/[Rails.env].rb)
+** defaults to sendmail commandline currently
+** NOTE: the user your application runs under may need special permissions to set the RETURN_PATH(where your emails bounce to) if you use sendmail command
 ==Data Initialization==
 * Import an example design to start with
  rake newsletter:import_example_design
 * log in with the default user:
 ** email: admin@example.com
 ** password: Secret5!
-* You can then go to Setup -> Users and change the username/password  
+* You can then go to Setup -> Users and change the email/password  
+==Start Services==
+NOTE: remember to prefix with "RAILS_ENV=production" to run in production
 
+* Delayed Job [https://github.com/collectiveidea/delayed_job](docs) 
+  bundle exec script/delayed_job start
+* web server (may be different debending on your deployment)
+  bundle exec rails s
