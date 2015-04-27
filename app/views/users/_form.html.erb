@@ -19,8 +19,8 @@
   <%= f.text_field :email %><br />
   <% if @user.new_record? || @user == current_user %>
     <%= f.label :password %>
-    <%= f.password_field :password %><br />
-    <%= f.label :password_confirmation %>
+    <%= f.password_field :password, autocomplete: 'off' %><br />
+    <%= f.label :password_confirmation, autocomplete: 'off' %>
     <%= f.password_field :password_confirmation %><br />
   <% end %>
   <% if current_user.is_admin? %>

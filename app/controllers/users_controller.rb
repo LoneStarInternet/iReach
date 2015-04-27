@@ -27,8 +27,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    flash[:notice] = 'User was successfully updated.' if @user.update_attributes(params[:user])
-    respond_with(@user)
+    if params[:user].try(:has_key?,:password)
+      unless params[:user][:password].present? || params[:user][:password_confirmation].present?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+      end
+    end
+    if @user.update_attributes(params[:user])
+      flash[:notice] = 'User was successfully updated.' 
+      sign_in(@user, :bypass => true) if @user == current_user
+    end
+    respond_with(@user, location: (current_user.admin? ? users_path : '/admin'))
   end
 
   def destroy
