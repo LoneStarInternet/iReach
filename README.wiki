@@ -46,10 +46,7 @@ This is a cloneable app that will get you up and running quickly if all you want
 NOTE: remember to prefix with "RAILS_ENV=production" to run in production
 
 * Delayed Job docs: [https://github.com/collectiveidea/delayed_job]
-```bash
   bundle exec script/delayed_job start
-```
+  
 * web server (may be different debending on your deployment)
-```bash
   bundle exec rails s
-```
