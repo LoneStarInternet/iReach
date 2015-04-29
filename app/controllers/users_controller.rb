@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     flash[:notice] = 'User was successfully created.' if @user.save
-    respond_with(@user)
+    respond_with(@user, location: (current_user.admin? ? users_path : '/admin'))
   end
 
   def update
