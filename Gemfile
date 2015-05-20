@@ -12,8 +12,8 @@ gem 'mysql2'
 #gem 'newsletter', path: '/home/httpd/newsletter'
 #gem 'i_reach', path: '/home/httpd/i_reach'
 # Set gems for bender refs 
-gem 'mail_manager', git: 'ssh://git@bender.lnstar.com/var/git/mail_manager.git', ref: 'e893a'
-gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter.git', ref: '116e5' 
+gem 'mail_manager', git: 'ssh://git@bender.lnstar.com/var/git/mail_manager.git', ref: 'f882a'
+gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter.git', ref: '30296' 
 gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach.git', ref: '3e939'
 #gem 'i_reach', "~>3.2"
 gem 'devise'

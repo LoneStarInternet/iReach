@@ -78,13 +78,13 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    `ssh #{web_user}@#{domain} "/etc/init.d/unicorn graceful #{application} && cd #{current_path} && RAILS_ENV=#{rails_env} script/delayed_job restart"`
+    `ssh #{web_user}@#{domain} "/etc/init.d/unicorn graceful #{application} && cd #{current_path} && RAILS_ENV=#{rails_env} script/delayed_job restart -p#{application}"`
   end
 
   namespace :delayed_job do
     desc "Restart Delayed Job"
     task :restart, :roles => :app do
-      `ssh #{web_user}@#{domain} "cd #{current_path} && RAILS_ENV=#{rails_env} script/delayed_job restart"`
+      `ssh #{web_user}@#{domain} "cd #{current_path} && RAILS_ENV=#{rails_env} script/delayed_job restart -p#{application}"`
     end
   
     desc "Stop Delayed Job"
@@ -101,7 +101,7 @@ namespace :deploy do
   desc "Precompile Assets"
   task :precompile_assets, :roles => :app do
     #run "source /usr/local/rvm/scripts/rvm && cd #{release_path} && RAILS_GROUPS=assets RAILS_ENV=#{rails_env } bundle exec rake assets:precompile"
-    `RAILS_ENV=#{rails_env} bundle exec rake assets:precompile`
+    `RAILS_ENV=demo bundle exec rake assets:precompile`
     `rsync -rlDzv --delete public/assets/ #{user}@#{domain}:#{shared_path}/public/assets/`
   end
 
