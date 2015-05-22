@@ -14,8 +14,8 @@ GIT
 
 GIT
   remote: ssh://git@bender.lnstar.com/var/git/mail_manager.git
-  revision: e893a70f94c5f95c6f21d9a2c4060c421caa5f4d
-  ref: e893a
+  revision: 254bb0f0c004ac4faf5c83ec383f68482249b1b2
+  ref: 254bb
   specs:
     mail_manager (3.2.4)
       cancancan (~> 1.9)
@@ -34,8 +34,8 @@ GIT
 
 GIT
   remote: ssh://git@bender.lnstar.com/var/git/newsletter.git
-  revision: 116e507a196f9819c2031cd3e996e2a7210a5d58
-  ref: 116e5
+  revision: 91e0fbaaa8e5fd354158f6f93318126abab7e8f0
+  ref: 91e0f
   specs:
     newsletter (3.2.6)
       acts_as_list (~> 0.5)

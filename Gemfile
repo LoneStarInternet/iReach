@@ -11,9 +11,8 @@ gem 'mysql2'
 #gem 'mail_manager', path: '/home/httpd/mail_manager'
 #gem 'newsletter', path: '/home/httpd/newsletter'
 #gem 'i_reach', path: '/home/httpd/i_reach'
-# Set gems for bender refs 
-gem 'mail_manager', git: 'ssh://git@bender.lnstar.com/var/git/mail_manager.git', ref: 'f882a'
-gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter.git', ref: '30296' 
+gem 'mail_manager', git: 'ssh://git@bender.lnstar.com/var/git/mail_manager.git', ref: '254bb'
+gem 'newsletter', git: 'ssh://git@bender.lnstar.com/var/git/newsletter.git', ref: '91e0f' 
 gem 'i_reach', git: 'ssh://git@bender.lnstar.com/var/git/i_reach.git', ref: '3e939'
 #gem 'i_reach', "~>3.2"
 gem 'devise'
@@ -51,7 +50,6 @@ gem 'jquery-rails'
 gem 'unicorn-rails'
 
 # Deploy with Capistrano
-# gem 'capistrano'
 group :development do
   gem 'airbrussh', :require => false
   gem 'capistrano', "~>2.15.0"
@@ -66,8 +64,6 @@ group :development do
   #gem 'rvm1-capistrano3', require: false
   gem 'hipchat'
 end
-
-
 
 # To use debugger
 # gem 'debugger'
