@@ -1,9 +1,9 @@
 GIT
   remote: ssh://git@bender.lnstar.com/var/git/i_reach.git
-  revision: 3e939bbd6d8f91ac68e3e50128dee1a944f009d8
-  ref: 3e939
+  revision: 23d3f4dd933c79fdb30ecb28fa49d1d57141bd12
+  ref: 23d3f
   specs:
-    i_reach (3.2.5)
+    i_reach (3.2.7)
       cancancan (~> 1.9)
       jquery-rails (~> 3.1)
       jquery-ui-rails (~> 5.0)
@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: ssh://git@bender.lnstar.com/var/git/mail_manager.git
-  revision: 254bb0f0c004ac4faf5c83ec383f68482249b1b2
-  ref: 254bb
+  revision: 50aef1c4aafd3e340fb8c0b184aa70dd3cf6ee38
+  ref: 50aef
   specs:
-    mail_manager (3.2.4)
+    mail_manager (3.2.6)
       cancancan (~> 1.9)
       daemons (~> 1.1)
       delayed_job (~> 4)
@@ -34,10 +34,10 @@ GIT
 
 GIT
   remote: ssh://git@bender.lnstar.com/var/git/newsletter.git
-  revision: 91e0fbaaa8e5fd354158f6f93318126abab7e8f0
-  ref: 91e0f
+  revision: 8bee3ae26f1de2d9ba3a429d5867d8de45cf8fc3
+  ref: 8bee
   specs:
-    newsletter (3.2.6)
+    newsletter (3.2.7)
       acts_as_list (~> 0.5)
       cancancan (~> 1.9)
       carrierwave (~> 0.10)
