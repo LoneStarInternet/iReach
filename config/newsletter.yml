@@ -45,7 +45,7 @@ common:
   designs_path: "<%= File.join(Rails.root,'newsletters') %>"
   asset_path: newsletter_assets
   site_path: "/admin"
-  table_prefix: newsletter
+  table_prefix: newsletter_
   path_prefix: "/admin"
 demo:
   site_url: http://test-thaa.lnstar.com
