@@ -1,0 +1,35 @@
+<h1>Search Results</h1>
+
+<table class="list">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Mailing Address</th>
+    <th>Mailing City</th>
+    <th>Mailing State</th>
+    <th>Mailing ZIP</th>
+    <th>Email Address</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+
+<% for member in @results %>
+  <tr valign='top'>
+    <td><%=h member.first_name %></td>
+    <td><%=h member.last_name %></td>
+    <td><%=h member.mailing_address %></td>
+    <td><%=h member.mailing_city %></td>
+    <td><%=h member.mailing_state %></td>
+    <td><%=h member.mailing_zip %></td>
+    <td><%=h member.email %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :controller => '/admin/member', :id => member %></td>
+    <td><%= link_to 'Delete', "/admin/member/#{member.id}", :confirm => 'Are you sure?', :method => :delete %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<% will_paginate( @results ) %>
+<br />
+
+<%= link_to( 'New Search', { :action => 'search', :controller => '/admin/member_search' } ) %>
+

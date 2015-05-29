@@ -1,0 +1,9 @@
+<% if member_signed_in? %>
+  <%= render partial: 'member/signed_in_message' %>
+<% else %>
+  <%= form_for(@member, :url => "https://#{Conf.site_url.gsub(/^http:\/\//,'')}#{session_path(:member)}") do |f| %>
+    THAA Member Login <%= image_submit_tag("/images/spacer.gif") %>
+    <%= f.email_field :email, :autofocus => true, placeholder: "Email Address", size: "21" %>
+    <%= f.password_field :password, placeholder: "Password", size: "21" %>
+  <% end %>
+<% end %>

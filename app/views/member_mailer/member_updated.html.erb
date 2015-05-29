@@ -1,0 +1,110 @@
+<html>
+<head>
+<title></title>
+
+<style>
+body {
+   margin:20px;
+   padding:0;
+   text-align:center;
+   background:#E0CFA8;
+   color:#463219;
+   font:11px Verdana, Arial, Helvetica, sans-serif;}
+
+
+.bigRed { font:bold 12px Arial,Helvetica,sans-serif;
+   text-decoration:none;
+   color:#A11111;
+   text-align: left;
+}
+
+td {
+   font:11px Verdana, Arial, Helvetica, sans-serif;
+}
+
+td.label {
+   font-weight: bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 class='bigRed'>Updated Member Information</h1>
+<table>
+
+<tr>
+   <td class='label' valign='top' align='right'> <label for="members_first_name">First name</label></td>
+   <td colspan='5'><%= @member.first_name %>
+   </td>
+</tr>
+<tr>
+   <td class='label' valign='top' align='right'> <label for="members_last_name">Last name</label></td>
+   <td colspan='5'><%= @member.last_name %></td>
+   </td>
+</tr>
+<tr>
+   <td class='label' valign='top' align='right'> <label for="members_mailing_address">Mailing Address</label></td>
+   <td colspan='5'><%= @member.mailing_address %>
+   </td>
+</tr>
+<tr>
+   <td class='label' valign='top' align='right'> <label for="members_mailing_city">City</label></td>
+   <td><%= @member.mailing_city  %>
+   </td>
+   <td class='label' valign='top' align='right'> <label for="members_mailing_state">State</label></td>
+   <td><%= @member.mailing_state %>
+   </td>
+   <td class='label' valign='top' align='right'> <label for="members_mailing_zip">ZIP</label></td>
+   <td><%= @member.mailing_zip  %>
+   </td>
+</tr>
+
+<tr>
+   <td class='label' valign='top' align='right'> <label for="members_email">Email Address</label></td>
+   <td colspan='5'><%= @member.email %>
+   </td>
+</tr>
+<tr>
+   <td class='label' ><label for="members_membership_type">Membership Type</label></td>
+   <td colspan='5'>
+         <%= @member.membership_type.description %>
+   </td>
+</tr>
+
+<tr>
+   <td class='label' valign='top' align='right'><label for="members_business_name">Business Name</label></td>
+   <td colspan='5'><%= @member.business_name %>
+   </td>
+</tr>
+
+<tr>
+   <td class='label' valign='top' align='right'><label for="members_business_address">Business Address</label></td>
+   <td colspan='5'><%= @member.business_address %>
+   </td>
+</tr>
+
+<tr>
+   <td class='label' valign='top' align='right'> <label for="members_business_city">City</label></td>
+   <td><%= @member.business_city  %>
+   </td>
+   <td class='label' valign='top' align='right'> <label for="members_business_state">State</label></td>
+   <td><%= @member.business_state  %>
+   </td>
+   <td class='label' valign='top' align='right'> <label for="members_business_zip">ZIP</label></td>
+   <td><%= @member.business_zip %>
+   </td>
+</tr>
+
+<tr>
+   <td class='label' valign='top' align='right'><label for="members_business_phone">Business phone</label></td>
+   <td colspan='5'><%= @member.business_phone %>
+   </td>
+</tr>
+
+</table>
+
+</body>
+</html>

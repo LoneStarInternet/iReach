@@ -1,0 +1,4 @@
+<!-- Signed in as <%= link_to(current_member.full_name, edit_member_path(current_member)) %> -->
+<%= link_to("Edit Member Info", edit_member_path(@member)) %> | 
+<%= link_to("Change Password", '/members/edit_password') %> |
+<%= link_to("Logout", "/members/sign_out") %>&nbsp;&nbsp;&nbsp;

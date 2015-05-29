@@ -1,0 +1,19 @@
+<h1>Course Completions Report</h1>
+<table class="list">
+  <thead>
+    <th>Number</th>
+    <th>Title</th>
+    <th># Cmpl</th>
+    <th>Last Completion Date</th>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+    <tr id="course_<%= course.number.gsub("-","_") %>">
+      <td><%= course.number %></td>
+      <td><%= course.name %></td>
+      <td style="text-align: center;" id="course_<%= course.number.underscore %>_count"><%= course.total_completions %></td>
+      <td><%= course.last_completed_on %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

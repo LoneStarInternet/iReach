@@ -1,0 +1,40 @@
+<div style="margin-left: 300px;">
+<p><span class="sub_header"><%= @course.name.html_safe %></span><br/>
+      CE Hours: <%= @course.ce_hours_formatted %><br/>
+      Speaker: <%= @course.speakers.html_safe %><br/>
+      DSHS Course No: <%= @course.number %><br/>
+      Description: <br/>
+      <%= @course.description.html_safe %>
+</p>
+</div>
+<div style="margin-left: auto; margin-right: auto; padding-top: 40px; width: <%= @course.width %>px;">
+  <video width="<%= @course.width %>" height="<%= @course.height %>" controls poster="ihs.jpg" autoplay=autoplay>
+      <!-- MP4 must be first for iPad -->
+      <source src="<%= @course.mp4_video_uri %>" type="video/mp4" /><!-- IE > 9 / Chrome / Safari -->
+      <source src="<%= @course.ogv_video_uri %>" type="video/ogg" /><!-- Firefox / Opera -->
+      <!-- Older browser fallback  -->
+    <object id="mediaplayer" classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#version=5,1,52,701" standby="loading microsoft windows media player components..." type="application/x-oleobject" width="<%= @course.width %>" height="<%= @course.height %>">
+      <param name="filename" value="<%= @course.video_name %>_640x480.wmv">
+      <param name="animationatstart" value="true">
+      <param name="transparentatstart" value="true">
+      <param name="autostart" value="true">
+      <param name="showcontrols" value="true">
+      <param name="ShowStatusBar" value="true">
+      <param name="windowlessvideo" value="true">
+      <embed src="<%= @course.wmv_video_uri %>" autostart="true" showcontrols="true" showstatusbar="1" bgcolor="white" width="<%= @course.width %>" height="<%= @course.height %>">
+    </object>       
+  </video>
+<!--      
+      <p><a href="/videos/<%= @course.video_name %>_640x480.ogv">Download the OGV File: <%= @course.video_name %> Seminar 640x480 390kbps OGV</a></P>
+      <p><a href="/videos/<%= @course.video_name %>_640x480_400kbps.mp4">Download the MP4 File: <%= @course.video_name %> Seminar 640x480 400kbps MP4</a></p>
+      <p><a href="/videos/<%= @course.video_name %>_640x480.wmv">Download the WMV File: <%= @course.video_name %> Seminar 640x480 400kbps WMV</a></p>
+-->
+<p><b>Please wait a few moments for your video to load.</b></p>
+
+<p>This video is formatted to run in the following browsers:<br />
+Internet Explorer version 9 or higher<br />
+Safari version 6.1 or higher<br />
+Firefox version 4 or higher<br />
+<p style="font-style: italic; font-size: 9pt;">If you do not currently maintain one of these browsers,
+you will need to update your browser or access the THAA web site  from a computer that does.</p>
+</div>  

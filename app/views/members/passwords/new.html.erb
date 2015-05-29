@@ -1,0 +1,19 @@
+<h2>Forgot your password?</h2>
+
+<!-- this message is for if their email is not in the members list -->
+<% if resource.email.present? && Member.where("email=?",resource.email).count == 0 %>
+<div class="notice" style="margin-bottom: 5px;">You have entered an email address that is not on file with THAA or your membership in the association has been suspended for failure to pay dues in a timely manner.
+<br /><br />To correct your email address or discuss your membership, you may call the THAA staff at 512-477-1991 or email them
+ at <a href="mailto:info@texashearingaids.org">info@texashearingaids.org</a>.</div>
+<% end %>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <!-- <%= devise_error_messages! %> -->
+
+  <div><%= f.label :email %> address on file with THAA<br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div style="margin-top: 5px; margin-bottom: 10px;"><%= f.submit "Send me reset password instructions" %></div>
+<% end %>
+
+<%= render "members/shared/links" %>

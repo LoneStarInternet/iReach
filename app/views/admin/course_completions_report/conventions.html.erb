@@ -1,0 +1,23 @@
+<h1><%= @convention.name %></h1>
+<%= will_paginate @members %>
+<table border="1">
+  <thead>
+    <th>Name</th><th>CEs</th>
+  </thead>
+  <% @members.each do |member| %>
+  <tr bgcolor="<%= cycle('#AAFFAA','#88FF88') %>">
+    <td><%= member.full_name %></td>
+    <td><%= best_in_place member, "convention_#{@convention.year}_ce_hours", path: admin_member_convention_ce_hours_path(member_id: member.id, year: @convention.year) %></td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate @members %>
+<% content_for :head do %>
+<script src="/javascripts/best_in_place.js" type="text/javascript"></script>
+<script language="javascript">
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
+</script>
+<% end %>

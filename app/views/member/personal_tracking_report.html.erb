@@ -1,0 +1,33 @@
+<div style="margin-left: 300px;">
+    <p class="main_header">Personal Tracking Report</p>
+    <p style="font-size: 16pt; color: #005496;"><%= @member.full_name %> - Texas License Number <%= @member.license_number %></p>
+    <p>Below is a list of CE hours you have completed with THAA - both online and at the 2012 and 2013 annual conventions.</p>
+    <p>To print a report that reflects the total CE hours completed <b>during your current license renewal period</b>, follow these instructions:</p>
+   <ol>
+	<li>Enter your Texas dispenser license number.</li>
+	<li>Enter the date that your license is scheduled to expire with the State Licensing Committee. </li>
+	<li>Click the <b>&quot;Download PDF&quot;</b> button. A PDF report will be downloaded to your computer showing the number of CE hours completed during the 24 month period <b>beginning with the expiration month</b> of your license. Open this document on your computer and print it if you desire.</li>
+   </ol>
+    <p>The State Licensing Committee has agreed to accept this report as proof of the CE hours you completed with THAA during your current license renewal period. It is no longer necessary to forward CE certificates to the State Licensing Committee for license renewal audits.</p>
+<% if current_member.can_complete_courses? %>
+
+    <%= form_tag member_personal_tracking_report_path(format: :pdf) do %>
+      <%= label_tag :license_number, "License Number" %> <%= text_field_tag 'license_number', @member.license_number, 'size' => 10 %>
+      <%= label_tag :license_renewal_date, "License Renewal Date" %> <%= text_field_tag 'license_renewal_date', params[:license_renewal_date], 'size' => 10 %> 
+      <%= submit_tag "Download PDF", {id: "download_personal_tracking_report"} %>
+    <% end %>
+    <p style="font-size: 14pt; font-weight: bold;">CE Hours Completed</p>
+    <%= render partial: 'course_completions/course_completion', collection: @course_completions %>
+</div>
+<% content_for :head do %>
+  <script language="javascript">
+    jQuery(document).ready(function(){
+      jQuery('#license_renewal_date').datepicker();
+    });
+  </script>
+<% end %>
+
+<% else %>
+<p style="color: red; text-align: center; font-weight: bold;">DELINQUENT DUES NOTICE</p>
+<p style="color: red;">You cannot complete steps 1 and 2 above until you have paid your 2015 annual membership dues. To pay your dues <b><a href="/6_quick_links/quick_pay_dues.html">click here</a></b> and follow the instructions. Access to your <b>Personal Tracking Report</b> will be provided as soon as your annual dues payment is received. For more information, contact the THAA staff at 512-477-1991.</p>
+<% end %>

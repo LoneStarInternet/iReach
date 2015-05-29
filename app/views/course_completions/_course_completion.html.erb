@@ -1,0 +1,15 @@
+<% if course_completion.is_a?(CourseCompletion) %>    
+    <p><span class="sub_header">Course Completion Date: <%= course_completion.attended_on.strftime("%B %d, %Y") %></span><br />
+      DSHS Course No: <%= course_completion.number %><br />
+      Course Name: <%= course_completion.name %><br />
+      CE Hours: <%= course_completion.ce_hours_formatted %>
+    </p>
+<% elsif course_completion.is_a?(ConventionAttendance) %>
+    <p><span class="sub_header"><%= course_completion.name %>: <%= course_completion.attended_on.strftime("%B %d, %Y") %></span><br />
+      DSHS Program No: <%= course_completion.number %><br />
+      <% if course_completion.ihs_program_number.present? %>
+        IHS Program No: <%= course_completion.ihs_program_number %><br />
+      <% end %>
+      CE Hours: <%= course_completion.ce_hours_formatted %>
+    </p>
+<% end %>

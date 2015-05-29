@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>THAA Update Archive</title>
+<link rel="stylesheet" type="text/css" href="/thaa.css">
+<style type="text/css">
+<!--
+body {
+   margin-bottom: 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+<div id="container_inner">
+<div id="header_inner"><img src= "/images/top_inner.gif" width="699" height="70" /></div>
+<div id="red_inner" align="right"><span class="red_pad">1315 Nueces Street | Austin, TX 78701 | 512.477.1991</span></div>
+<div id="blue_inner" align="right">
+
+  <table width="699" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="201" align="center" id="bluelinks"><a href="/">HOME</a></td>
+      <td><img src="/images/texas_flag_498_90.gif" alt="texas flag" width="498" height="90" border="0"></td>
+    </tr>
+  </table>
+</div>
+<table width="699" border="0" cellspacing="0" cellpadding="25">
+  <tr>
+
+    <td><h1>THAA Update Archive</h1>
+
+<div style="margin-bottom: 100px;">
+<% @newsletters.published.each do |newsletter|
+   scheduled_at = newsletter.mailings.sort_by(&:scheduled_at).last.try(:scheduled_at) %>
+<p><span style="font-weight: bold;"><%= scheduled_at.strftime("%b %d, %Y") if scheduled_at.present? %></span>
+   <br /><%= link_to "#{newsletter.name}", public_newsletter_path(newsletter), :target=>"_blank" %></p>
+<% end %>
+</div> 
+   
+    </td>
+
+   </tr>
+</table>
+</div>
+<p>&nbsp;</p>
+</body>
+</html>

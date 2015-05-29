@@ -1,0 +1,21 @@
+<h1>Member CE Hours Report</h1>
+<p><%= will_paginate @members %></p>
+<table class="list">
+  <thead>
+    <th>Name</th>
+    <th>Courses Cmpl</th>
+    <th>Convention Cmpl</th>
+    <th>Total</th>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+    <tr id="member_<%= member.id %>">
+      <td><%= member.full_name %></td>
+      <td style="text-align: center;" class="course_hours"><%= member.completed_course_hours_since %></td>
+      <td style="text-align: center;" class="convention_hours"><%= member.completed_convention_hours_since %></td>
+      <td style="text-align: center;" class="total_hours"><%= member.completed_course_hours_since + member.completed_convention_hours_since %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<p><%= will_paginate @members %></p>

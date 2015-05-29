@@ -1,0 +1,13 @@
+<% unsubscribed_status ||= 'unsubscribed' %>
+<%= contactable_form.fields_for :subscriptions do |subscription_fields| %>
+  <% subscription = subscription_fields.object %>
+  <tr valign="top" align="right">
+    <td>
+    <%= subscription_fields.label :status, subscription.mailing_list.try(:name) %>
+    </td>
+    <td colspan="5" align="left">
+    <%= subscription_fields.check_box :status, {}, 'active', subscription.status.eql?('active') ? unsubscribed_status : subscription.status %>
+    <%= subscription_fields.hidden_field :mailing_list_id %>
+    </td>
+  </tr>
+<% end %>

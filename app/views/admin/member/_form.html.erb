@@ -1,0 +1,124 @@
+<table>
+<!--[form:member]-->
+<tr>
+   <td valign='top' align='right'> <label for="member_membership_status">Membership Status</label></td>
+   <td colspan='5'><%= select 'member', 'membership_status', ['No Site / No CE', 'Site - CE', 'Site + CE'] %>
+      <%= error_message_on @member, 'membership_status', 'Membership status ' %>
+   </td>
+</tr>
+<tr>
+   <td valign='top' align='right'> <label for="member_license_number">License Number</label></td>
+   <td colspan='5'><%= text_field 'member', 'license_number', 'size' => 75  %>
+      <%= error_message_on @member, 'license_number', 'License number ' %>
+   </td>
+</tr>
+
+<tr>
+   <td valign='top' align='right'> <label for="member_password">Password</label></td>
+   <td colspan='5'><%= text_field 'member', 'password', 'size' => 75  %>
+      <%= error_message_on @member, 'password', 'Password ' %>
+   </td>
+</tr>
+<tr>
+   <td valign='top' align='right'> <label for="member_first_name">First name</label></td>
+   <td colspan='5'><%= text_field 'member', 'first_name', 'size' => 75  %>
+      <%= error_message_on @member, 'first_name', 'First Name ' %>
+   </td>
+</tr>
+<tr>
+   <td valign='top' align='right'> <label for="member_last_name">Last name</label></td>
+   <td colspan='5'><%= text_field 'member', 'last_name', 'size' => 75  %>
+      <%= error_message_on @member, 'last_name', 'Last Name ' %>
+   </td>
+</tr>
+<tr>
+   <td valign='top' align='right'> <label for="member_mailing_address">Mailing Address</label></td>
+   <td colspan='5'><%= text_field 'member', 'mailing_address', 'size' => 75  %>
+      <%= error_message_on @member, 'mailing_address', 'Mailing Address ' %>
+   </td>
+</tr>
+<tr>
+   <td valign='top' align='right'> <label for="member_mailing_city">City</label></td>
+   <td><%= text_field 'member', 'mailing_city'  %>
+      <%= error_message_on @member, 'mailing_city', 'Mailing City ' %>
+   </td>
+   <td valign='top' align='right'> <label for="member_mailing_state">State</label></td>
+   <td><%= state_select( 'member', 'mailing_state',  { :country => 'US_POSTAL_CODES', :include_blank => true, :selected => @member.mailing_state } ) %>
+      <%= error_message_on @member, 'mailing_state', 'Mailing State ' %>
+   </td>
+   <td valign='top' align='right'> <label for="member_mailing_zip">ZIP</label></td>
+   <td><%= text_field 'member', 'mailing_zip', 'size' => 10  %>
+      <%= error_message_on @member, 'mailing_zip', 'Mailing ZIP ' %>
+   </td>
+</tr>
+
+<tr>
+   <td valign='top' align='right'> <label for="member_email">Email Address</label></td>
+   <td colspan='5'><%= text_field 'member', 'email', 'size' => 75  %>
+      <%= error_message_on @member, 'email', 'Email Address ' %>
+   </td>
+</tr>
+<tr>
+   <td valign='top' align='right'><label for="member_membership_type">Membership Type</label></td>
+   <td colspan='5'>
+      <select name="member[membership_type_id]">
+      <option value=''></option>
+         <%= 
+            options_from_collection_for_select( MembershipType.find( :all, :order => 'description').collect, "id", "description", @member.membership_type_id ) %>
+      </select> 
+      <%= error_message_on @member, 'membership_type_id', 'Membership Type ' %>
+   </td>
+</tr>
+
+<tr>
+   <td valign='top' align='right'><label for="member_business_name">Business Name</label></td>
+   <td colspan='5'><%= text_field 'member', 'business_name', 'size' => 75  %>
+      <%= error_message_on @member, 'business_name', 'Business Name ' %>
+   </td>
+</tr>
+
+<tr>
+   <td valign='top' align='right'><label for="member_business_address">Business Address</label></td>
+   <td colspan='5'><%= text_field 'member', 'business_address', 'size' => 75  %>
+      <%= error_message_on @member, 'business_address', 'Business Address ' %>
+   </td>
+</tr>
+
+<tr>
+   <td valign='top' align='right'> <label for="member_business_city">City</label></td>
+   <td><%= text_field 'member', 'business_city'  %>
+      <%= error_message_on @member, 'business_city', 'Business City ' %>
+   </td>
+   <td valign='top' align='right'> <label for="member_business_state">State</label></td>
+   <td><%= state_select( 'member', 'business_state',  { :country => 'US_POSTAL_CODES', :include_blank => true, :selected => @member.business_state } ) %>
+      <%= error_message_on @member, 'business_state', 'Business State ' %>
+   </td>
+   <td valign='top' align='right'> <label for="member_business_zip">ZIP</label></td>
+   <td><%= text_field 'member', 'business_zip', 'size' => 10  %>
+      <%= error_message_on @member, 'business_zip', 'Business ZIP ' %>
+   </td>
+</tr>
+
+<tr>
+   <td valign='top' align='right'><label for="member_business_phone">Business phone</label></td>
+   <td colspan='5'><%= text_field 'member', 'business_phone', 'size' => 75  %>
+      <%= error_message_on @member, 'business_phone', 'Business Phone ' %>
+   </td>
+</tr>
+<% Convention.order("starts_on desc").each do |convention| %>
+   <tr>
+   <td valign='top' align='right'><label for="member_convention_<%= convention.year %>_ce_hours">Convention <%= convention.year %> CE Hours</label></td>
+   <td colspan='5'><%= text_field_tag "member[convention_#{convention.year}_ce_hours]", @member.convention_ce_hours_for_year(convention.year), {'size' => 10}  %> (enter '0' to remove attendance, must be an integer)
+   </td>
+</tr>
+<% end %>
+<tr>
+  <td valign='top' align='right'><label>Subscriptions</label></td>
+  <tdcolspan='5'>
+   
+  </td>
+</tr>
+ <%= render :partial => 'mail_manager/subscriptions/subscriptions', :locals => {:contactable_form => f, :unsubscribed_status => 'admin_unsubscribed'} %>
+<!--[eoform:member]-->
+</table>
+

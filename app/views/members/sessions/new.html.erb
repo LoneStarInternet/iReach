@@ -1,0 +1,40 @@
+<div style="text-align:center;">
+<h2 style="margin-bottom: 0px;">Member Only Content</h2>
+<h3 style="margin-bottom: 0px;">You have attempted to access contents of this site that are reserved for THAA members only.</h3>
+(Access to Non-Member information is provided in the lower right corner of the <a href="http://www.texashearingaids.org">Home page</a>).
+</div>
+<h2>Member Login</h2>
+
+
+<!-- assume if email present they've tried... we don't get errors on the object -->
+<% if resource.email.present? && Member.where("email=?",resource.email).count > 0 %>
+<div class="notice" style="margin-bottom: 5px;">Invalid password.<br />
+You may attempt to enter the correct password again or select the <a href="/members/password/new">Forgot your password?</a> link to reset your password.</div>
+<% end %>
+
+<!-- this message is for if their email is not in the members list -->
+<% if resource.email.present? && Member.where("email=?",resource.email).count == 0 %>
+<div class="notice" style="margin-bottom: 5px;">You have entered an email address that is not on file with THAA or your membership in the association has been suspended for failure to pay dues in a timely manner.
+<br /><br />To correct your email address or discuss your membership, you may call the THAA staff at 512-477-1991 or email them at <a href="mailto:info@texashearingaids.org">info@texashearingaids.org</a>.</div>
+<% end %>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %> address on file with THAA<br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div style="margin-top: 10px;"><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Login" %></div>
+<% end %>
+<br />
+<%= render "members/shared/links" %>
+
+<p><b>Member Login</b><br />
+To enter the site, you must enter your <b>email address on file with the association</b> and <b>your password from the previous THAA site</b>.</p>
+<p><b>Non-Member Information</b><br />
+We invite all non-members to view the information provided in the lower right corner of the <a href="http://www.texashearingaids.org">Home page</a>. These links provide information about THAA, members benefits and services, our annual convention and trade show, and how to join the association. For more information, please contact the THAA staff at 512-477-1991.</p>

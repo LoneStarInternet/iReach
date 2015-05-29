@@ -1,0 +1,27 @@
+     <%= form_for @member, url: "/admin/member/#{@member.id}", method: :put do |f| %>
+<% if @member.reset_password_token.present? && @member.reset_password_sent_at > 6.hours.from_now %>
+<p>
+   Initial Set Password URL:
+   <%= text_field_tag 'reset_password_link', %Q|#{Conf.site_url.gsub(/^http:\/\//,'https://')}/members/password/edit?reset_password_token=#{@member.reset_password_token}&create_password=true|, {:size => 80} %>
+   <br/>
+</p>
+<% end %>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+         <br />&nbsp;
+        <div align="right"><%= submit_tag 'Submit' %></div>
+      <% end %>
+
+<h3>Completed Courses</h3>
+<ul>
+<% @member.course_completions.each do |completion| %>
+  <li>
+    <%= completion.attended_on.strftime("%B %d, %Y") %> -
+    <% unless completion.course.nil? %>
+    <%= completion.number %> -
+    <%= completion.name %>
+    <% else %>
+    Course Deleted!
+    <% end %>
+  </li>
+<% end %>
+</ul>

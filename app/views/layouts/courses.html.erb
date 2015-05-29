@@ -1,0 +1,24 @@
+<% content_for :head do %>
+  <script src="../SpryAssets/SpryTreeView.js" type="text/javascript"></script>
+  <link href="../SpryAssets/SpryTreeView.css" rel="stylesheet" type="text/css">
+<% end %>
+
+<% content_for :content do %>
+  <div id="left_nav">
+    <h3>THAA Online CE</h3>
+    <ul id="TreeView1" class="SpryTreeView">
+      <li><a href="/7_ce/ce_how_it_works.html"> &bull; How It Works</a></li>
+      <li><a href="/courses">&bull; View/Record CE Courses</a><br>
+      </li>
+      <li><a href="/members/personal_tracking_report">&bull; Your Personal Tracking Report</a></li>
+    </ul>
+    <script type="text/javascript">
+var TreeView1 = new Spry.Widget.TreeView("TreeView1");
+    </script>
+    <script type="text/javascript">
+var TreeView1 = new Spry.Widget.TreeView("TreeView1");
+    </script>
+  </div>
+  <%= content_for?(:courses_content) ? yield(:courses_content) : yield %>
+<% end %>
+<%= render template: "layouts/application" %>

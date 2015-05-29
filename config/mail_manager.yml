@@ -44,14 +44,14 @@
 #
 ---
 common:
-  site_url: http://example.com
-  public_layout: mail_manager/layout
+  site_url: http://texashearingaids.org
+  public_layout: main_layout
   site_path: "/"
   use_show_for_resources: false
   exception_notification:
     to_addresses:
-    - bobo@example.com
-    from_address: Mail Manager Exception <admin@example.com>
+    - alert@lnstar.com
+    from_address: THAA Mail Manager Exception <alert@lnstar.com>
   requires_authentication: true
   roles_method: role_symbols
   authorized_roles:
@@ -62,7 +62,7 @@ common:
   subscribe_thank_you_path: "/listmgr/subscribe_thank_you"
   double_opt_in_path: "/listmgr/confirm"
   honey_pot_field: company_name
-  signup_email_address: Register <signup@example.com>
+  signup_email_address: Register <info@texashearingaids.org>
   dont_include_images_domains:
   - yahoo.com
   - google.com
@@ -72,16 +72,18 @@ common:
   - outlook.com
   sleep_time_between_messages: 0.3
   path_prefix: "/admin"
-  table_prefix: mail_manager_
-  default_from_email_address: Contact <contact@example.com>
+  table_prefix: mail_mgr_
+  default_from_email_address: THAA Update <info@texashearingaids.org>
   secret: "<%= ENV['MAIL_MANAGER_SECRET'] %>"
   bounce:
-    email_address: bounces@lvh.me
-    login: test
-    password: secret
-    pop_server: pop.lvh.me
-    port: 110
+    email_address: news@texashearingaids.org
+    login: news_texashearingaids.org
+    password: 10dole01 
+    pop_server: mail.lnstar.com
+    ssl: true
   layout: i_reach/application
+demo:
+  site_url: http://test-thaa.lnstar.com
 development:
   site_url: http://example.dev
   secret: 9ddaeac4a0c6a1540ee4312ef7b8da

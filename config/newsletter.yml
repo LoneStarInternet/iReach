@@ -28,9 +28,9 @@
 # and the 'show' actions aren't really currently supported
 ---
 common:
-  site_url: http://ireach.dev
+  site_url: http://texashearingaids.org
   layout: i_reach/application
-  archive_layout: newsletter/layout
+  archive_layout: main_layout
   use_show_for_resources: false
   show_title: true
   designs_require_authentication: true
@@ -42,11 +42,13 @@ common:
   - newsletter
   - admin
   roles_method: role_symbols
-  designs_path: "<%= File.join(Rails.root,'designs') %>"
+  designs_path: "<%= File.join(Rails.root,'newsletters') %>"
   asset_path: newsletter_assets
   site_path: "/admin"
-  table_prefix: newsletter_
+  table_prefix: newsletter
   path_prefix: "/admin"
+demo:
+  site_url: http://test-thaa.lnstar.com
 development:
   site_url: http://ireach.dev
 test:

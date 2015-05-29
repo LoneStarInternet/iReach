@@ -1,0 +1,24 @@
+<div style="margin-left: 300px;">
+    <p class="main_header">Viewing &amp; Recording Completed Courses</p>
+    <p>Below is a list of online courses currently available to all members. The list is divided into one-hour and two-hour courses. Currently, there are a total of 36 hours of courses from which to choose. All have been approved by the State Licensing Committee for license renewal. More course hours will be added in the coming year. All courses are video presentations with a speaker or a voice-over-slide presentation.</p>
+    <p><span class="sub_header">Course Descriptions</span><br />
+    For a description of course content, click on the <b>&quot;Course Description&quot;</b> button for each course.</p>
+    <p><span class="sub_header">Viewing Courses</span><br />
+    To view a course, click the <b>&quot;View&quot;</b> button for each course. You may view any course at anytime and it will not affect your Personal Tracking Report. You may pause, fast forward, rewind, stop viewing, and even change to another course video at anytime and it will not affect your PTR. This allows you to access the information in all of the videos anytime you need to without affecting your total number of completed CE hours during your current license renewal period.</p>
+    <p><span class="sub_header">Recording Completed Courses To Your Personal Tracking Report</span><br />
+    To record a completed course to your Personal Tracking Report, click the <b>&quot;Record Completed Course&quot;</b> button under the course listing. Please understand, when you click this button, the course and completion date will be <b>permanently recorded</b> to your Personal Tracking Report and you will receive credit from the State Licensing Committee <b>during your current license renewal period only</b>.</p>
+</div>
+    <p style="font-weight: bold; font-size: 16pt;">THAA Online CE Course&nbsp;Listings</p>
+    <p class="sub_header" style="font-size: 14pt;">1 CE Hour&nbsp;Courses</p>
+    <% @one_hour_courses.each do |course| %>
+      <%= render course %>
+    <% end %>
+    <p class="sub_header" style="font-size: 14pt;">2 CE Hour&nbsp;Courses</p>
+    <% @two_hour_courses.each do |course| %>
+      <%= render course %>
+    <% end %>
+    <p class="sub_header" style="font-size: 14pt;">3 CE Hour&nbsp;Courses</p>
+    <% @three_hour_courses.each do |course| %>
+    <%= render course %>
+    <%end %>
+    <p>&nbsp;</p>

@@ -1,0 +1,75 @@
+<p class="header">Search Members</p>
+<fieldset>
+<legend><b>Enter search criteria</b></legend>
+
+<!--[form:member_search]-->
+<%= form_tag :action => 'results' do %>
+
+<table>
+
+<tr>
+   <td align='right'> <label for="member_search_first_name">First name</label></td>
+   <td colspan='5'><%= text_field 'member_search', 'first_name', 'size' => 75  %></td>
+</tr>
+<tr>
+   <td align='right'> <label for="member_search_last_name">Last name</label></td>
+   <td colspan='5'><%= text_field 'member_search', 'last_name', 'size' => 75  %></td>
+</tr>
+<tr>
+   <td align='right'> <label for="member_search_mailing_address">Mailing Address</label></td>
+   <td colspan='5'><%= text_field 'member_search', 'mailing_address', 'size' => 75  %></td>
+</tr>
+<tr>
+   <td align='right'> <label for="member_search_mailing_city">City</label></td>
+   <td><%= text_field 'member_search', 'mailing_city'  %></td>
+   <td align='right'> <label for="member_search_mailing_state">State</label></td>
+   <td><%= state_select( 'member_search', 'mailing_state',  { :country => 'US_POSTAL_CODES', :include_blank => true } ) %></td>
+   <td align='right'> <label for="member_search_mailing_zip">ZIP</label></td>
+   <td><%= text_field 'member_search', 'mailing_zip', 'size' => 10  %></td>
+</tr>
+
+<tr>
+   <td align='right'><label for="member_search_membership_type">Membership Type</label></td>
+   <td colspan='5'>
+      <select name="member_search[membership_type_id]"> 
+         <option value=''> -- </option>
+         <%= 
+            options_from_collection_for_select( MembershipType.order('description').collect, "id", "description" ) %>
+      </select> 
+   </td>
+</tr>
+
+<tr>
+   <td align='right'><label for="member_search_business_name">Business Name</label></td>
+   <td colspan='5'><%= text_field 'member_search', 'business_name', 'size' => 75  %></td>
+</tr>
+
+<tr>
+   <td align='right'><label for="member_search_business_address">Business Address</label></td>
+   <td colspan='5'><%= text_field 'member_search', 'business_address', 'size' => 75  %></td>
+</tr>
+
+<tr>
+   <td align='right'> <label for="member_search_business_city">City</label></td>
+   <td><%= text_field 'member_search', 'business_city'  %></td>
+   <td align='right'> <label for="member_search_business_state">State</label></td>
+   <td>
+       <%= state_select( 'member_search', 'business_state',  { :country => 'US_POSTAL_CODES', :include_blank => true } ) %>
+   </td>
+   <td align='right'> <label for="member_search_business_zip">ZIP</label></td>
+   <td><%= text_field 'member_search', 'business_zip', 'size' => 10  %></td>
+</tr>
+
+<tr>
+   <td align='right'><label for="member_search_business_phone">Business phone</label></td>
+   <td colspan='5'><%= text_field 'member_search', 'business_phone', 'size' => 75  %></td>
+</tr>
+
+<!--[eoform:member_search]-->
+</table>
+<div align="right"><%= submit_tag 'Search' %></div>
+<% end %>
+</form>
+</fieldset>
+<br />
+<%= link_to 'Add New Member', :action => 'new', :controller => '/admin/member'  %>

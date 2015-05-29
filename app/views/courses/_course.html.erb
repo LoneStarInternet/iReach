@@ -1,0 +1,40 @@
+<div class="course<%= ' completed_course' if current_member.has_completed_course?(course) %>"><span class="sub_header"><%= course.name.html_safe %></span><br/>
+      CE Hours: <%= course.ce_hours_formatted %><br/>
+      Speaker: <%= course.speakers.html_safe %><br/>
+      DSHS Course No: <%= course.number %><br/>
+  <strong>
+    <%= link_to("Course Description", "#", {onClick: "return toggleById('#course_description_#{course.id}')", 
+      id: "show_course_description_#{course.id}"}) %>
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 
+    <%= link_to 'View', view_course_path(course), {id: "view_course_#{course.id}"} %>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    <% if current_member.has_completed_course?(course) %>
+      Completed on <%= current_member.course_completed_on(course) %>
+    <% else %>
+      <% if current_member.can_complete_courses? %>
+        <%= link_to("Record Completed Course", complete_course_path(course), 
+          {id: "complete_course_#{course.id}", method: :put, data: {confirm: "Click OK if you are ready to record this course on your Personal Tracking Report. Please understand, when you click OK the course and today's date will be permanently recorded to your Personal Tracking Report."} }) %>
+      <% else %>
+          <%= link_to("Record Completed Course", "#", {onClick: "return toggleById('#course_completion_denial_#{course.id}')", 
+      id: "complete_course_#{course.id}"}) %>
+      <% end %>
+    <% end %>
+  </strong>
+  <p id="course_completion_denial_<%= course.id %>" style="display:none; color: red;">
+You cannot record this course to your <b>Personal Tracking Report</b> until you have paid your 2015 annual membership dues. To pay your dues <b><a href="/6_quick_links/quick_pay_dues.html">click here</a></b> and follow the instructions. <b>Access to Record Completed Courses</b> will be provided as soon as your annual dues payment is received. For more information, contact the THAA staff at 512-477-1991.
+  </p>
+  <div id="course_description_<%= course.id %>" style="display:none">
+    Description: <br/>
+    <%= course.description.html_safe %>
+  </div>
+</div>
+
+<% unless content_for(:head).include?('toggleDescription') %>
+  <% content_for :head do %>
+    <script type='text/javascript'>
+      function toggleById(id) {
+        $(id).toggle();
+        return false;
+      }
+    </script>
+  <% end %>
+<% end %>

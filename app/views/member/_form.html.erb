@@ -1,0 +1,69 @@
+<div id="member_edit">
+<!--[form:members]-->
+  <div class="col1"><label for="member_license_number">License Number</label></div>
+  <div class="col2"><%= text_field 'member', 'license_number', { :class => 'normal' }  %>
+      <%= error_message_on @member, 'license_number', 'License number ' %>
+  </div>
+  <div class="col1"><label for="member_first_name">First name</label></div>
+  <div class="col2"><%= text_field 'member', 'first_name', { :class => 'normal' }  %>
+      <%= error_message_on @member, 'first_name', 'First Name ' %>
+  </div>
+  <div class="col1"><label for="member_last_name">Last name</label></div>
+  <div class="col2"><%= text_field 'member', 'last_name', { :class => 'normal' }  %>
+      <%= error_message_on @member, 'last_name', 'Last Name ' %>
+  </div>
+  <div class="col1"><label for="member_mailing_address">Mailing Address</label></div>
+  <div class="col2"><%= text_field 'member', 'mailing_address', { :class => 'address' }  %>
+      <%= error_message_on @member, 'mailing_address', 'Mailing Address ' %>
+  </div>
+  <div>
+    <div class="col1"><label for="member_mailing_city">City</label></div>
+    <div class="city"><%= text_field 'member', 'mailing_city', { :class => 'city' }  %>
+      <%= error_message_on @member, 'mailing_city', 'Mailing City ' %> <%= error_message_on @member, 'mailing_state', 'Mailing State ' %> <%= error_message_on @member, 'mailing_zip', 'Mailing ZIP ' %>
+    </div>
+    <div class="state"> <label for="member_mailing_state">State</label>
+      <%= state_select( 'member', 'mailing_state',  { :country => 'US_POSTAL_CODES', :include_blank => true, :selected => @member.mailing_state, :class => 'state' } ) %>
+    </div>
+    <div class="zipcode"> <label for="member_mailing_zip">ZIP</label>
+      <%= text_field 'member', 'mailing_zip', { :class => 'zip' }  %>
+    </div>
+  </div>
+  <div class="col1"><label for="member_email">Email Address</label></div>
+  <div class="col2"><%= text_field 'member', 'email', { :class => 'normal' } %>
+      <%= error_message_on @member, 'email', 'Email Address ' %>
+  </div>
+  <div class="col1"><label for="member_membership_type">Membership Type</label></div>
+  <div class="col2"><select name="member[membership_type_id]">
+      <option value=''></option>
+         <%= options_from_collection_for_select( MembershipType.find( :all, :order => 'description').collect, "id", "description", @member.membership_type_id ) %>
+      </select> 
+      <%= error_message_on @member, 'membership_type_id', 'Membership Type ' %>
+   </div>
+   <div class="col1"><label for="member_business_name">Business Name</label></div>
+   <div class="col2"><%= text_field 'member', 'business_name',{ :class => 'normal' }  %>
+      <%= error_message_on @member, 'business_name', 'Business Name ' %>
+   </div>
+   <div>
+     <div class="col1"><label for="member_business_address">Business Address</label></div>
+     <div class="col2"><%= text_field 'member', 'business_address',{ :class => 'normal' }  %>
+       <%= error_message_on @member, 'business_address', 'Business Address ' %>
+     </div>
+     <div class="col1"><label for="member_business_city">City</label></div>
+     <div class="city"><%= text_field 'member', 'business_city',{ :class => 'city' }  %>
+       <%= error_message_on @member, 'business_city', 'Business City ' %> <%= error_message_on @member, 'business_state', 'Business State ' %> <%= error_message_on @member, 'business_zip', 'Business ZIP ' %>
+     </div>
+     <div class="state"><label for="member_business_state">State</label>
+       <%= state_select( 'member', 'business_state',  { :country => 'US_POSTAL_CODES', :include_blank => true, :selected => @member.business_state } ) %>
+     </div>
+     <div class="zipcode"><label for="member_business_zip">ZIP</label>
+       <%= text_field 'member', 'business_zip', { :class => 'zip' }  %>
+     </div>
+  </div>
+  <div class="col1"><label for="member_business_phone">Business phone</label></div>
+  <div class="col2"><%= text_field 'member', 'business_phone', { :class => 'normal' }  %>
+      <%= error_message_on @member, 'business_phone', 'Business Phone ' %>
+  </div>
+  <div style="clear: both; text-align: right;"><%= submit_tag 'Submit' %></div>
+</div>
+<!--[eoform:members]-->
+

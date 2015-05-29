@@ -1,4 +1,4 @@
-set :application, "news.lone-star.net"
+set :application, "thaa.lnstar.com"
 set :deploy_to, "/var/www/#{application}"
 set :domain, "leela.lnstar.com"
 set :user, "deploy"

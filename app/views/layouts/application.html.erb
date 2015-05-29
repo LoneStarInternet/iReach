@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Texas Hearing Aid Association</title>
+<link href='/assets/base.css' media='screen' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.css">
+  <link rel="stylesheet" media="all" type="text/css" href="/stylesheets/timepicker.css" />
+
+<script src="/javascripts/jquery.js" type="text/javascript"></script>
+<script src="/javascripts/jquery_ujs.js" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+<%= content_for :head %>
+</head>
+<body>
+<div id="interior_header">
+    <h1><a href="/">TEXAS HEARING AID ASSOCIATION</a></h1>
+    <div class="tagline">representing the licensed hearing aid dispensers of Texas</div>
+    <div id="login"><%= render(partial: 'member/signed_in_message') if member_signed_in? %><br/></div>
+</div>
+<div id="primary_nav">
+      <a href="/1_bluebar/board_of_directors.html"><img src="/images/primary_nav_bar/Board_of_Directors.png" width="164" height="53" alt="Board of Directors"></a>
+    <a href="/1_bluebar/owners_group.html"><img src="/images/primary_nav_bar/THAA_Owners_Group.png" width="156" height="53" alt="THAA Owner's Group"></a>
+    <a href="/1_bluebar/official_sponsors.html"><img src="/images/primary_nav_bar/Official_THAA_Sponsors.png" width="167" height="53" alt="Official THAA Sponsors"></a>
+    <a href="/1_bluebar/benefits_services.html"><img src="/images/primary_nav_bar/Member_Benefits_and_Services.png" width="192" height="53" alt="Mamber Benefits &amp; Services"></a>
+    <a href="/8_convention/convention_tradeshow.html"><img src="/images/primary_nav_bar/Annual_Convention_and_Trade_Show.png" width="221" height="53" alt="Annual Convention &amp; Trade Show"></a>
+        <a href="/1_bluebar/contact_us.html"><img src="/images/primary_nav_bar/Contact_Us.png" width="120" height="53" alt="Contact Us"></a>
+</div>
+<div id="home_content" class="page_width">
+<div id="sub_nav">
+	<p><a href="/3_industry_issues/issues_home.html">Industry Issues</a></p>
+	    <p><a href="/4_slc/slc_home.html">State Licensing Committee</a></p>
+    <p><a href="/5_capitol/capitol_home.html">Texas Legislature</a></p>
+    <p><a href="/2_medicaid/medicaid_home.html">Medicaid</a></p>
+    <p class="ce"><a href="/tbdq">THAA Online CE</a></p>
+</div>
+<div style="clear:both;"></div>
+<div id="interior_page"><div id="one_col">
+             <% if flash[:notice] && flash[:notice].to_s !~ /^Signed in/ %>
+            <div class='notice' align='center'> 
+            <%= flash[:notice] %>
+            </div>
+
+         <% end %>
+<%= content_for?(:content) ? yield(:content) : yield %>
+</div>
+</div>
+</div>
+<br />
+</body>
+</html>
