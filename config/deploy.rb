@@ -26,7 +26,6 @@ require 'capistrano-unicorn'
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 ssh_options[:keys] = %w('~/.ssh/id_rsa.pub')
-set :deploy_to, "/home/httpd/#{application}"
 set :deploy_via, :remote_cache
 set :user, "deploy"
 set :use_sudo, false
