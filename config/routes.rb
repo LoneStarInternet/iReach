@@ -20,7 +20,7 @@ IReach::Application.routes.draw do
     end
     match '/admin/course_completions_report' => 'admin/course_completions_report#index', method: :get
     match '/admin/course_completions_report/members' => 'admin/course_completions_report#members', method: :get, as: :members_admin_course_completions_report
-    match '/admin/conventions_report/:id' => 'admin/course_completions_report#conventions', method: :get
+    match '/admin/conventions_report/:id' => 'admin/course_completions_report#conventions', method: :get, as: :admin_conventions_report
     match '/admin/member_search/search' => 'admin/member_search#search'
     match '/admin/member_search/results' => 'admin/member_search#results'
   
@@ -91,9 +91,11 @@ IReach::Application.routes.draw do
 
   mount IReach::Engine => "/admin", layout: 'application'
 
-  root to: 'newsletter/newsletters#archive'
+  root to: 'i_reach/welcome#index'
 
   get '/admin', to: 'i_reach/welcome#index'
+
+  get '/status', to: 'status#index'
 
   match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
 

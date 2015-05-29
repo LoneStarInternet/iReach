@@ -1,6 +1,7 @@
 require 'cancan'
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  load_and_authorize_resource
   rescue_from CanCan::AccessDenied, with: :new_login
 
   def new_login(e)
