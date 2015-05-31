@@ -1,6 +1,6 @@
 class Admin::MemberSearchController < ApplicationController
    
-  #before_filter :admin_authenticate
+  authorize_resource class: false 
 
   layout 'admin'
 

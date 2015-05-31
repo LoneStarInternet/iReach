@@ -1,7 +1,9 @@
 class MemberController < ApplicationController
 
-  skip_before_filter :authenticate, only: [:static_login, :not_authorized]
-  respond_to :html#, :pdf, only: [:personal_tracking_report]
+  respond_to :html, :pdf, only: [:personal_tracking_report]
+
+  load_and_authorize_resource
+  
 
   def index
       redirect_to :action => 'edit'

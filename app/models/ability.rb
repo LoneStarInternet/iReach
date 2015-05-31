@@ -7,18 +7,18 @@ class Ability
     if user.present? && user.admin?
       can :manage, User
       can :manage, Member
-      can [:read,:conventions,:members], CourseCompletionsReport 
-      can [:read,:search,:results], MemberSearch 
+      can [:read,:conventions,:members], :course_completion_report 
+      can [:read,:search,:results], :member_search 
     elsif user.present? && user.member_admin?
       can :manage, Member
-      can [:read,:conventions,:members], CourseCompletionsReport 
-      can [:read,:search,:results], MemberSearch 
+      can [:read,:conventions,:members], :course_completion_report 
+      can [:read,:search,:results], :member_search 
     elsif user.present?
       can :manage, user do |target|
         target == user
       end
+      can :read, :home
     end
-    can :read, Home
 
     # Define abilities for the passed in user here. For example:
     #

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
-  before_filter :authorize_courses, only: [:complete]
-  before_filter :find_course, only: [:show, :complete]
+  load_resource
+  authorize_resource only: [:show, :complete]
   skip_before_filter :verify_authenticity_token, only: [:complete]
   layout 'courses'
 

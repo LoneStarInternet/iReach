@@ -91,9 +91,9 @@ IReach::Application.routes.draw do
 
   mount IReach::Engine => "/admin", layout: 'application'
 
-  root to: 'i_reach/welcome#index'
+  root to: 'admin/home#index'
 
-  get '/admin', to: 'i_reach/welcome#index'
+  get '/admin', to: 'admin/home#index'
 
   get '/status', to: 'status#index'
 

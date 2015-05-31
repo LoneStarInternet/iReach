@@ -1,4 +1,5 @@
 class Admin::CourseCompletionsReportController < ApplicationController
+  authorize_resource class: false
   def index
     @course_completion_counts = CourseCompletion.joins(:course).group(:number).count
     @course_completion_last_completions = CourseCompletion.joins(:course).

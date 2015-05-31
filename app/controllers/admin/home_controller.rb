@@ -1,6 +1,5 @@
 class Admin::HomeController < ApplicationController
-
-   #before_filter :admin_authenticate
+   authorize_resource class: false
    layout 'admin'
 
    def index
