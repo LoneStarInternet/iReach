@@ -1,0 +1,50 @@
+--- 
+common: 
+  newsletter_table_prefix: newsletter
+  mail_mgr_default_from_email_address: THAA Update <info@texashearingaids.org>
+  newsletters_path: <%= "#{Rails.root}/newsletters" %>
+  mail_mgr_bounce: 
+    pop_server: mail.lnstar.com
+    email_address: news@texashearingaids.org
+    password: 10dole01
+    login: news_texashearingaids.org
+  mail_mgr_secret: c91df43b85ab29457ad410c6610e5fFSIHE
+  mail_mgr_unsubscribe_path: /listmgr
+  use_show_for_resources: false
+  newsletter_asset_path: newsletter_assets
+  newsletter_path_prefix: /admin/newsletter
+  newsletter_table_prefix: newsletter_
+  mail_mgr_path_prefix: /admin/mail_mgr
+  mail_mgr_table_prefix: mail_mgr_
+  mail_mgr_sleep_time_between_messages: 0.3
+  session_expire_minutes: 4000
+  site_path: 
+  site_url: http://www.texashearingaids.org
+  static_root: /home/httpd/texashearingaids.org/html
+  tmp_directory: /home/httpd/texashearingaids.org/shared/tmp
+  shared_root: /home/httpd/texashearingaids.org/shared
+  video_root: /home/httpd/texashearingaids.org/videos
+  exception_notification:
+    recipients: alert@lnstar.com
+    sender_address: '"Application Error" <errors@texashearingaids.org>'
+  mail_mgr_dont_include_images_domains: 
+    - yahoo.com
+    - gmail.com
+    - hotmail.com
+    - aol.com        
+development:
+  site_url: http://www.texashearingaids.dev
+  static_root: <%= File.join(Rails.root,'public') %>
+  tmp_directory: <%= File.join(Rails.root,'tmp') %>
+  shared_root: <%= Rails.root %>
+  video_root: <%= Rails.root %>/videos
+test:
+  site_url: http://www.texashearingaids.test
+  static_root: <%= File.join(Rails.root,'public') %>
+  tmp_directory: <%= File.join(Rails.root,'tmp') %>
+  shared_root: <%= Rails.root %>
+  video_root: <%= Rails.root %>/spec/support/videos
+production_admin:
+  static_root: /home/httpd/thaa.lnstar.com/html
+  tmp_directory: /home/httpd/thaa.lnstar.com/shared/tmp
+  shared_root: /home/httpd/thaa.lnstar.com/shared

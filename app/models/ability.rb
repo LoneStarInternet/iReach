@@ -6,18 +6,17 @@ class Ability
     eval MailManager::abilities
     if user.present? && user.admin?
       can :manage, User
-      can :manage, Member
-      can [:read,:conventions,:members], :course_completion_report 
-      can [:read,:search,:results], :member_search 
-    elsif user.present? && user.member_admin?
-      can :manage, Member
-      can [:read,:conventions,:members], :course_completion_report 
-      can [:read,:search,:results], :member_search 
-    elsif user.present?
+    end
+    if user.present? && (user.member_admin? || user.admin?)
+      can :manage, :member
+      can [:index,:conventions,:members], :course_completions_report 
+      can [:index,:search,:results], :member_search
+    end
+    if user.present?
       can :manage, user do |target|
         target == user
       end
-      can :read, :home
+      can :index, :home
     end
 
     # Define abilities for the passed in user here. For example:

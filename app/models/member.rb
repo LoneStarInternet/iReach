@@ -191,12 +191,16 @@ EOT
   def full_name
     "#{first_name} #{last_name}".strip.gsub(/\s+/,' ')
   end
-  # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email_address, :password, :password_confirmation# , :remember_me
-  # attr_accessible :title, :body
-  attr_protected :id, :reset_password_token, :reset_password_sent_at, :encrypted_password
+
+  #attr_accessible :membership_status, :license_number, :password, :first_name, 
+  #  :last_name, :mailing_address, :mailing_city, :mailing_state, :mailing_zip, 
+  #  :email, :membership_type_id, :business_name, :business_address, :business_city, 
+  #  :business_state, :business_zip, :business_phone, :convention_2015_ce_hours, 
+  #  :convention_2014_ce_hours, :convention_2013_ce_hours, :convention_2012_ce_hours, :password_confirmation
+
 
   include MailManager::ContactableRegistry::Contactable
+  attr_protected :id, :reset_password_token, :reset_password_sent_at, :encrypted_password
   
   def generate_initial_reset_password
     raw, enc = Devise.token_generator.generate(self.class, :reset_password_token)

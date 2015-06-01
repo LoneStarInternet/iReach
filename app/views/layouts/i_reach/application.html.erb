@@ -23,12 +23,12 @@
         </ul>
       </li>
       <% end %>
-      <% if can?(:manage, Member) %>
-      <%= content_tag(:li, link_to('Members', main_app.admin_members_path) %> 
+      <% if can?(:manage, :member) %>
+      <%= content_tag(:li, link_to('Members', main_app.admin_member_search_search_path)) %> 
       <li><span onClick="$('#ce_menu').toggle();return false" style="cursor: pointer;">CE</span>
         <ul id='ce_menu' <%= ' style="display:none"'.html_safe unless request.path =~ %r#/course# %>>
           <%= content_tag(:li, link_to('Courses', main_app.admin_course_completions_report_path)) %>
-          <%= content_tag(:li, link_to('Member CE Hours', main_app.admin_member_course_completions_report_path)) %>
+          <%= content_tag(:li, link_to('Member CE Hours', main_app.admin_members_course_completions_report_path)) %>
           <%= content_tag(:li, link_to('2012 Annual Convention', main_app.admin_conventions_report_path(id: 1))) %>
           <%= content_tag(:li, link_to('2013 Annual Convention', main_app.admin_conventions_report_path(id: 2))) %>
           <%= content_tag(:li, link_to('2014 Annual Convention', main_app.admin_conventions_report_path(id: 3))) %>

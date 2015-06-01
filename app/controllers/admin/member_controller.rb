@@ -1,8 +1,5 @@
 class Admin::MemberController < ApplicationController
-
-  #before_filter :admin_authenticate
-
-  layout 'admin'
+  authorize_resource  class: false
 
   def index
     list

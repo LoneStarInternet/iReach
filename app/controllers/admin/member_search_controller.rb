@@ -2,8 +2,6 @@ class Admin::MemberSearchController < ApplicationController
    
   authorize_resource class: false 
 
-  layout 'admin'
-
   def index
    redirect_to :action => 'search'
   end
