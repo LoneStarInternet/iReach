@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, 
     :remember_me, :roles
+
+  def can?(action, thing)
+    ability = Ability.new(self)
+    ability.can?(action,thing)
+  end
+
 end
 
 # Here is how you might tie a user to a contact

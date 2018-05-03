@@ -7,7 +7,7 @@ class Ability
     if user.present? && user.admin?
       can :manage, User
     elsif user.present?
-      can :manage, User do |target|
+      can :manage, user do |target|
         target == user
       end
     end
