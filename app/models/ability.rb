@@ -6,13 +6,7 @@ class Ability
     eval MailManager::abilities
     if user.present? && user.admin?
       can :manage, User
-    end
-    if user.present? && (user.member_admin? || user.admin?)
-      can :manage, :member
-      can [:index,:conventions,:members], :course_completions_report 
-      can [:index,:search,:results], :member_search
-    end
-    if user.present?
+    elsif user.present?
       can :manage, user do |target|
         target == user
       end

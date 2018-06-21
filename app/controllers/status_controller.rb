@@ -1,4 +1,5 @@
 class StatusController < ActionController::Base
+  protect_from_forgery
   def index
     Delayed::Status.ok?(params[:job_seconds].blank? ? 15.minutes : params['job_seconds'].to_i.seconds)
     render :text => 'OK'
